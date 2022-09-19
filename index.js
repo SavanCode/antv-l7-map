@@ -5,9 +5,9 @@ const scene = new Scene({
   id: 'map',
   map: new GaodeMap({
     center: [113, 29],
-    pitch: 70,
-    zoom: 8.5,
-    rotation: 160,
+    pitch: 0,
+    zoom: 5,
+    rotation: 0,
     style: 'dark',
   }),
 });
@@ -194,7 +194,10 @@ const barLayer = new PointLayer({ zIndex: 2, depth: false })
     lightEnable: false,
   });
 
-scene.on('loaded', () => {
+
+
+
+  scene.on('loaded', () => {
   scene.addLayer(waveLayer);
   scene.addLayer(barLayer);
   addMarkers();
