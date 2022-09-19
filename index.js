@@ -195,11 +195,34 @@ const barLayer = new PointLayer({ zIndex: 2, depth: false })
   });
 
 
-
+  const layer = new PointLayer()
+  .source(
+    [
+      {
+        lng: 120,
+        lat: 30
+      }
+    ],
+    {
+      parser: {
+        type: 'json',
+        x: 'lng',
+        y: 'lat'
+      }
+    }
+  )
+  .shape('radar')
+  .size(100)
+  .color('#d00')
+  .style({
+    speed: 5
+  })
+  .animate(true);
 
   scene.on('loaded', () => {
   scene.addLayer(waveLayer);
   scene.addLayer(barLayer);
-  addMarkers();
+  scene.addLayer(layer);
+  // addMarkers();
   scene.render();
 });
